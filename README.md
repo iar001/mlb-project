@@ -22,7 +22,7 @@ The site will allow the user to pick a player, and display the player's statisti
 
 There will be two options.  For the player to search for their own player, or to select a player from a list of best players in the league.  
 
-Also, there will be two pages.  One for pitching and one for hitting, as there are different statistics that must be display for each.
+Also, there will be two pages.  One for pitching and one for hitting, as there are different statistics that must be displayed for each.
 
 WireFraming
 
