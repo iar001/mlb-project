@@ -14,7 +14,7 @@ APIs
 I am using the MLB API, which is free and has a tremendous database of statistics for teams, players and seasons.  I will use this information to display the data onto the page.  
 Link:
 
-https://appac.github.io/mlb-data-api-docs/#player-data
+[link to api](https://appac.github.io/mlb-data-api-docs/#player-data)
 
 Features
 
@@ -28,7 +28,7 @@ WireFraming
 
 Homepage
 
-https://slack-files.com/T0351JZQ0-FPLHKGG8P-c71c6b07cc
+![homepage](https://slack-files.com/T0351JZQ0-FPLHKGG8P-c71c6b07cc)
 
 Hitter Page
 

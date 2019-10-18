@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import './App.css';
-import { player,player2 } from './services/api-helper';
+import { playerID, playerName } from './services/api-helper';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      playerByID: {},
+      playerByName: {}
     }
   }
   
   componentDidMount = async () => {
-    let mlb = await player()
-    let mlb2 = await player2()
-    console.log(mlb)
-    console.log(mlb2)
+    let playerByID = await playerID()
+    let playerByName = await playerName()
+    this.setState({
+      playerByID: playerByID,
+      playerByName: playerByName
+    })
+    console.log(playerByID)
+    console.log(playerByName)
   }
 
   render() {
-    return (
-      <div className="App">
-        <h1>test</h1>
-      </div>
-    );
+  
+      return (
+        <div className="App">
+          <Header />
+          <HomePage playerByID={this.state.playerByID}
+            playerByName={this.state.playerByName}
+          />
+        </div>
+      )
+    
   }
   
 }
