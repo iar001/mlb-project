@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { player } from './services/api-helper';
+import { player,player2 } from './services/api-helper';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,9 @@ class App extends Component {
   
   componentDidMount = async () => {
     let mlb = await player()
+    let mlb2 = await player2()
     console.log(mlb)
+    console.log(mlb2)
   }
 
   render() {

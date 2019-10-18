@@ -5,21 +5,55 @@ Play MLB Baseball
 
 Project Purpose
 
-The purpose of this website/app is to use React and React Router for the user to pick their team and play a simulated baseball game against the opponent.  The quality of the players will depend on statistics from the MLB APi, which is a great resource for current and historical MLB statistics.  The user will form their team by inputting their players, and then will play against one of the 30 current MLB teams.  
+The purpose of this website/app is to use React and React Router for the user to pick baseball players and have their statistics display.  It should be a quick way for users to see information of a player they are interested in.  Once this MVP is accomplished, additional features like assembling a team and performing a simulation vs another team can be done. 
+
 
 
 APIs
 
-I am using the MLB API, which is free and has a tremendous database of statistics for teams, players and seasons.  I will use this data to determine the strength of each player. 
+I am using the MLB API, which is free and has a tremendous database of statistics for teams, players and seasons.  I will use this information to display the data onto the page.  
+Link:
+
+https://appac.github.io/mlb-data-api-docs/#player-data
 
 Features
 
-The homepage will have an explanation on how to use the site, and the ability to pick the user's team.  The user will type in different players and add them to their roster until they have 9 and a pitcher.  Once this has been created, the user will click submit, and be taken to another page where the game will take place. 
+The site will allow the user to pick a player, and display the player's statistics on the page.  It will show around 10 of the most important stats to show how good a player is. 
 
-The game page will have a scoreboard that tracks the game, the two teams, and the current situation in the inning.  I will use a baseball infield diamond, and the bases will light up depending on whether there are men on base.   
+There will be two options.  For the player to search for their own player, or to select a player from a list of best players in the league.  
 
-The basis of simulation will be the quality of the pitcher vs hitter.  Using the hitter's stats, they will receive a score from 1 to 10, and same for the pitcher.  Those two numbers will determine the chance of an out, single, double, etc. 
+Also, there will be two pages.  One for pitching and one for hitting, as there are different statistics that must be display for each.
+
+WireFraming
+
+Homepage
+
+https://slack-files.com/T0351JZQ0-FPLHKGG8P-c71c6b07cc
+
+Hitter Page
+
+https://slack-files.com/T0351JZQ0-FP5UK49J6-946ba8a61e
+
+Pitcher Page
+
+https://slack-files.com/T0351JZQ0-FPJ8MCZ1A-72b53d20a5
+
+React Components
+
+1. Hitter dropdown results
+2. Hitter search results
+3. Pitcher dropdown results
+4. Pitcher search results
+5. Header
+6. Footer
+
+Timing
+1. Testing out APIs for Hitters and Pitchers: 3 Hours
+2. Dropdown menu of X number of players: 5 hours
+3. Initial styling: 5 hours
+4. MVP Reached.  Now can move to other goals
+
 
 Stretch Goals
 
-My initial goal is to be able to play one inning, where the game tracks the pitcher vs the lineup.  I will add to this to hopefully play more than one inning, and add more complexity to the simulation.
+Once you are able to select hitters and pitchers, I would like the user to be able to select an entire lineup.  Then, based on the player's stats, show projections of runs and wins for a full season.
