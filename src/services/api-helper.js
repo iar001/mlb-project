@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-
+// https://appac.github.io/mlb-data-api-docs/#player-data
 
 export const player = async () => {
   const response = await axios.get("http://lookup-service-prod.mlb.com/json/named.sport_career_hitting_lg.bam?league_list_id='mlb'&game_type='R'&player_id='493316'")
