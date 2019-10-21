@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import { playerIDVariable, playerNameVariable, pitcherNameVariable, pitcherIDVariable } from './services/api-helper';
 import Header from './components/Header';
 import Footer from './components/Footer'
+import Players from './components/Players';
 import HomePage from './components/HomePage';
+import Pitchers from './components/Pitchers';
 
 class App extends Component {
   constructor(props) {
@@ -80,8 +83,25 @@ class App extends Component {
   
       return (
         <div className="app">
-          <Header />
-          <HomePage 
+          <Header/>
+          <HomePage />
+          <Route exact path="/hitters" render={() => (
+            <Players 
+              handleChange1={this.handleChange1}
+              handleSubmit1={this.handleSubmit1}
+              playerStatsName={this.state.playerStatsName}
+              playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
+              handleChangePitcher={this.handleChangePitcher}
+              handleSubmitPitcher={this.handleSubmitPitcher}
+              pitcherName={this.state.pitcherName}
+              pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
+            />
+          )}
+          />
+
+
+          <Route exact path="/pitchers" render={() => (
+            <Pitchers
             handleChange1={this.handleChange1}
             handleSubmit1={this.handleSubmit1}
             playerStatsName={this.state.playerStatsName}
@@ -90,8 +110,22 @@ class App extends Component {
             handleSubmitPitcher={this.handleSubmitPitcher}
             pitcherName={this.state.pitcherName}
             pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
+            />
+          )}
           />
-          <Footer />
+            
+          {/* <Players 
+            handleChange1={this.handleChange1}
+            handleSubmit1={this.handleSubmit1}
+            playerStatsName={this.state.playerStatsName}
+            playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
+            handleChangePitcher={this.handleChangePitcher}
+            handleSubmitPitcher={this.handleSubmitPitcher}
+            pitcherName={this.state.pitcherName}
+            pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
+          /> */}
+          <Footer
+          />
         </div>
       )
     

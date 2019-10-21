@@ -7,7 +7,7 @@
   border: 3px solid green;
 }
 
-.homepage {
+.players {
   display: flex;
   justify-content: space-around;
 }
