@@ -8,26 +8,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerByID: {},
-      playerByName: {},
       ID: "",
-      value: "",
       playerStats: "",
-      name: ""
+      name: "",
+      playerStatsNameIDInfo: "",
+      judge: "aaron_judge",
     }
   }
   
-  componentDidMount = async () => {
-    let playerByID = await playerID()
-    let playerByName = await playerName()
-    this.setState({
-      playerByID: playerByID,
-      playerByName: playerByName,
-    })
-    console.log(playerByID)
-    console.log(playerByName)
-  }
-
   handleChange = (e) => {
     this.setState({
       ID: e.target.value
@@ -49,7 +37,17 @@ class App extends Component {
       name: e.target.value
     })
     console.log(this.state.name)
-    
+  }
+
+  handleSubmit1 = async (e) => {
+    e.preventDefault();
+    const playerStatsName = await playerNameVariable(this.state.name)
+    const playerStatsNameID = playerStatsName.player_id
+    const playerStatsNameIDInfo = await playerIDVariable(playerStatsNameID)
+    this.setState({
+      playerStatsNameIDInfo: playerStatsNameIDInfo
+    })
+    console.log(this.state.playerStatsNameIDInfo)
   }
 
   render() {
@@ -57,11 +55,13 @@ class App extends Component {
       return (
         <div className="App">
           <Header />
-          <HomePage playerByID={this.state.playerByID}
-            playerByName={this.state.playerByName}
+          <HomePage 
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             playerStats={this.state.playerStats}
+            handleChange1={this.handleChange1}
+            handleSubmit1={this.handleSubmit1}
+            playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
           />
         </div>
       )
