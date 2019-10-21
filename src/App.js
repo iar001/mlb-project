@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { playerID, playerName } from './services/api-helper';
+import { playerID, playerName, playerIDVariable } from './services/api-helper';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 
@@ -9,19 +9,23 @@ class App extends Component {
     super(props);
     this.state = {
       playerByID: {},
-      playerByName: {}
+      playerByName: {},
+      ID: ""
     }
   }
   
   componentDidMount = async () => {
     let playerByID = await playerID()
     let playerByName = await playerName()
+    let ID = await playerIDVariable(playerByName.player_id)
     this.setState({
       playerByID: playerByID,
-      playerByName: playerByName
+      playerByName: playerByName,
+      ID: ID
     })
     console.log(playerByID)
     console.log(playerByName)
+    console.log(ID)
   }
 
   render() {
@@ -31,6 +35,7 @@ class App extends Component {
           <Header />
           <HomePage playerByID={this.state.playerByID}
             playerByName={this.state.playerByName}
+            ID={this.state.ID}
           />
         </div>
       )
