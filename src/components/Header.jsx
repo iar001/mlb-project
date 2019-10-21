@@ -7,7 +7,7 @@ import React from 'react';
 export default function Header(props) {
   return (
     <div className="header">
-      <h1>This is a Header</h1>
+      <h1>Baseball Players</h1>
     </div>
   )
 }

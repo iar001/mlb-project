@@ -11,7 +11,9 @@ export default function HomePage(props) {
         <h3>Average: {props.playerStatsNameIDInfo.avg}</h3>
         <h3>Home Runs: {props.playerStatsNameIDInfo.hr}</h3>
         <h3>Runs Batted In: {props.playerStatsNameIDInfo.rbi}</h3>
-        <h3>Homers: {props.playerStatsNameIDInfo.player_id}</h3>
+        <h3>Slugging Percentage: {props.playerStatsNameIDInfo.slg}</h3>
+        <h3>On Base Percentage: {props.playerStatsNameIDInfo.obp}</h3>
+        <h3>Player ID: {props.playerStatsNameIDInfo.player_id}</h3>
       </form>
 
       <div className="playerID">
@@ -23,6 +25,11 @@ export default function HomePage(props) {
           <h3>RBI: {props.playerStats.rbi}</h3>
           <h3>Player ID: {props.playerStats.player_id}</h3>
         </form>
+
+        {/* <div className="ptichers">
+          <form id="player-form-pitcher" onSubmit={props.handleSubmitPitcher}
+
+        </div> */}
         
       </div>
     </div>
