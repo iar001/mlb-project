@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import { playerIDVariable, playerNameVariable, pitcherNameVariable, pitcherIDVariable } from './services/api-helper';
+import { playerIDVariable, playerNameVariable, pitcherNameVariable, pitcherIDVariable, historicalPlayerID, historicalPlayerName } from './services/api-helper';
 import Header from './components/Header';
 import Footer from './components/Footer'
 import Players from './components/Players';
 import HomePage from './components/HomePage';
 import Pitchers from './components/Pitchers';
+import HistoricalPlayers from './components/HistoricalPlayers';
 
 class App extends Component {
   constructor(props) {
@@ -23,9 +24,15 @@ class App extends Component {
       pitcherStatsNameIDInfo: "",
       pitcherName2: "",
       pitcherStatsNameIDInfo2: "",
-      // judge: "aaron_judge",
+      historicalName: "",
+      historicalNamePlayerID: "",
+      historicalNamePlayerIDInfo: "",
+      historicalName2: "",
+      historicalNamePlayerID2: "",
+      historicalNamePlayerIDInfo2: ""
     }
   }
+
   handleChange1 = (e) => {
     this.setState({
       name: e.target.value
@@ -63,8 +70,6 @@ class App extends Component {
     })
     // console.log(this.state.playerStatsNameIDInfo)
   }
-
-  
 
   handleChangePitcher = (e) => {
     this.setState({
@@ -106,29 +111,64 @@ class App extends Component {
     // console.log(this.state.pitcherStatsNameIDInfo)
   }
 
+  handleChangeHistory = (e) => {
+    this.setState({
+      historicalName: e.target.value
+    })
+    // console.log(this.state.historicalName)
+  }
+
+  handleSubmitHistory = async (e) => {
+    e.preventDefault();
+    const historicalName = await historicalPlayerName(this.state.historicalName)
+    const historicalNamePlayerID = historicalName.player_id
+    const historicalNamePlayerIDInfo = await historicalPlayerID(historicalNamePlayerID)
+    this.setState({
+      historicalName,
+      historicalNamePlayerIDInfo
+    })
+    // console.log(historicalNamePlayerIDInfo)    
+  }
+
+  handleChangeHistory2 = (e) => {
+    this.setState({
+      historicalName2: e.target.value
+    })
+    // console.log(this.state.historicalName2)
+  }
+
+  handleSubmitHistory2 = async (e) => {
+    e.preventDefault();
+    const historicalName2 = await historicalPlayerName(this.state.historicalName2)
+    const historicalNamePlayerID2 = historicalName2.player_id
+    const historicalNamePlayerIDInfo2 = await historicalPlayerID(historicalNamePlayerID2)
+    this.setState({
+      historicalName2,
+      historicalNamePlayerIDInfo2
+    })
+    // console.log(historicalNamePlayerIDInfo2)    
+  }
+
   render() {
-  
-      return (
-        <div className="app">
-          <Header />
-          <Route exact path="/" component={HomePage}/>
-          <Route exact path="/hitters" render={() => (
-            <Players 
-              handleChange1={this.handleChange1}
-              handleSubmit1={this.handleSubmit1}
-              playerStatsName={this.state.playerStatsName}
-              playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
-              handleChange2={this.handleChange2}
-              handleSubmit2={this.handleSubmit2}
-              playerStatsName2={this.state.playerStatsName2}
-              playerStatsNameIDInfo2={this.state.playerStatsNameIDInfo2}
-            />
-          )}
+    return (
+      <div className="app">
+        <Header />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/hitters" render={() => (
+          <Players 
+            handleChange1={this.handleChange1}
+            handleSubmit1={this.handleSubmit1}
+            playerStatsName={this.state.playerStatsName}
+            playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
+            handleChange2={this.handleChange2}
+            handleSubmit2={this.handleSubmit2}
+            playerStatsName2={this.state.playerStatsName2}
+            playerStatsNameIDInfo2={this.state.playerStatsNameIDInfo2}
           />
-
-
-          <Route exact path="/pitchers" render={() => (
-            <Pitchers
+          )}
+        />
+        <Route exact path="/pitchers" render={() => (
+          <Pitchers  
             handleChangePitcher={this.handleChangePitcher}
             handleSubmitPitcher={this.handleSubmitPitcher}
             pitcherName={this.state.pitcherName}
@@ -137,15 +177,26 @@ class App extends Component {
             handleSubmitPitcher2={this.handleSubmitPitcher2}
             pitcherName2={this.state.pitcherName2}
             pitcherStatsNameIDInfo2={this.state.pitcherStatsNameIDInfo2}
-            />
-          )}
           />
-          <Footer/>
-        </div>
+        )}
+        />
+        <Route exact path="/historicalhitters" render={() => (
+          <HistoricalPlayers
+            handleChangeHistory={this.handleChangeHistory}
+            handleSubmitHistory={this.handleSubmitHistory}
+            historicalName={this.state.historicalName}
+            historicalNamePlayerIDInfo={this.state.historicalNamePlayerIDInfo}
+            handleChangeHistory2={this.handleChangeHistory2}
+            handleSubmitHistory2={this.handleSubmitHistory2}
+            historicalName2={this.state.historicalName2}
+            historicalNamePlayerIDInfo2={this.state.historicalNamePlayerIDInfo2}
+          />
+        )}
+        />
+        <Footer/>
+      </div>
       )
-    
   }
-  
 }
 
 export default App;

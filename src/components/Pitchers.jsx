@@ -7,7 +7,7 @@ export default function Pitchers(props) {
     <div className="pitchers">
       <div>
         <form id="pitcher-form-name" onSubmit={props.handleSubmitPitcher}>
-          <input id="input" type="text" onChange={props.handleChangePitcher} placeholder="Type a Pitcher" />
+          <input id="input" type="text" onChange={props.handleChangePitcher} placeholder="Enter a Current Pitcher" />
           <h1>Pitcher</h1>
           <h3>Name: {props.pitcherName.name_display_first_last}</h3>
           <h3>Wins: {props.pitcherStatsNameIDInfo.w}</h3>
@@ -18,9 +18,10 @@ export default function Pitchers(props) {
           <h3>Player ID: {props.pitcherStatsNameIDInfo.player_id}</h3> 
         </form>
       </div>
+      
       <div>
         <form id="pitcher-form-name2" onSubmit={props.handleSubmitPitcher2}>
-          <input id="input" type="text" onChange={props.handleChangePitcher2} placeholder="Type a Pitcher" />
+          <input id="input" type="text" onChange={props.handleChangePitcher2} placeholder="Enter Another Pitcher" />
           <h1>Pitcher</h1>
           <h3>Name: {props.pitcherName2.name_display_first_last}</h3>
           <h3>Wins: {props.pitcherStatsNameIDInfo2.w}</h3>

@@ -19,6 +19,11 @@
   justify-content: space-around;
 }
 
+.historical-batters {
+  display: flex;
+  justify-content: space-around;
+}
+
 .footer {
   text-align: center;
   background-color: green;
