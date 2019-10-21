@@ -22,9 +22,18 @@ export const playerNameVariable = async (name) => {
   const response = await axios.get(`http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27${name}%27`)
   return response.data.search_player_all.queryResults.row
 }
+export const pitcherIDVariable = async (id) => {
+  const response = await axios.get(`http://lookup-service-prod.mlb.com/json/named.sport_career_pitching.bam?league_list_id='mlb'&game_type='R'&player_id='${id}'`)
+  return response.data.sport_career_pitching.queryResults.row
+}
 
-// http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27aaron_judge%27
-// this is the call for searching by player name
+export const pitcherNameVariable = async (name) => {
+  const response = await axios.get(`http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27${name}%27`)
+  return response.data.search_player_all.queryResults.row
+}
+
+
+
 
 
 

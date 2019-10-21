@@ -1,8 +1,23 @@
+
+
 .header {
   background-color: blue;
+  text-align: center;
+  margin: 0 auto;
+  border: 3px solid green;
 }
 
 .homepage {
   display: flex;
   justify-content: space-around;
 }
+
+.footer {
+  text-align: center;
+  background-color: green;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  border: 3px solid blue;
+}
+
