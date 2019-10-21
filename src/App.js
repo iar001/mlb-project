@@ -16,28 +16,16 @@ class App extends Component {
       name: "",
       playerStatsName: "",
       playerStatsNameIDInfo: "",
+      name2: "",
+      playerStatsName2: "",
+      playerStatsNameIDInfo2: "",
       pitcherName: "",
       pitcherStatsNameIDInfo: "",
+      pitcherName2: "",
+      pitcherStatsNameIDInfo2: "",
       // judge: "aaron_judge",
     }
   }
-  
-  handleChange = (e) => {
-    this.setState({
-      ID: e.target.value
-    })
-    // console.log(this.state.ID)
-  }
-
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    const playerStats = await playerIDVariable(this.state.ID)
-    this.setState({
-      playerStats
-    })
-    // console.log(playerStats)
-  }
-
   handleChange1 = (e) => {
     this.setState({
       name: e.target.value
@@ -57,6 +45,27 @@ class App extends Component {
     // console.log(this.state.playerStatsNameIDInfo)
   }
 
+  handleChange2 = (e) => {
+    this.setState({
+      name2: e.target.value
+    })
+    // console.log(this.state.ID)
+  }
+
+  handleSubmit2 = async (e) => {
+    e.preventDefault();
+    const playerStatsName2 = await playerNameVariable(this.state.name2)
+    const playerStatsNameID2 = playerStatsName2.player_id
+    const playerStatsNameIDInfo2 = await playerIDVariable(playerStatsNameID2)
+    this.setState({
+      playerStatsName2,
+      playerStatsNameIDInfo2
+    })
+    // console.log(this.state.playerStatsNameIDInfo)
+  }
+
+  
+
   handleChangePitcher = (e) => {
     this.setState({
       pitcherName: e.target.value
@@ -75,26 +84,44 @@ class App extends Component {
     })
     // console.log(pitcherName)
     // console.log(this.state.pitcherStatsNameIDInfo)
+  }
 
-    
+  handleChangePitcher2 = (e) => {
+    this.setState({
+      pitcherName2: e.target.value
+    })
+    // console.log(this.state.pitcherName)
+  }
+
+  handleSubmitPitcher2 = async (e) => {
+    e.preventDefault();
+    const pitcherName2 = await pitcherNameVariable(this.state.pitcherName2)
+    const pitcherStatsNameID2 = pitcherName2.player_id
+    const pitcherStatsNameIDInfo2 = await pitcherIDVariable(pitcherStatsNameID2)
+    this.setState({
+      pitcherName2,
+      pitcherStatsNameIDInfo2
+    })
+    // console.log(pitcherName)
+    // console.log(this.state.pitcherStatsNameIDInfo)
   }
 
   render() {
   
       return (
         <div className="app">
-          <Header/>
-          <HomePage />
+          <Header />
+          <Route exact path="/" component={HomePage}/>
           <Route exact path="/hitters" render={() => (
             <Players 
               handleChange1={this.handleChange1}
               handleSubmit1={this.handleSubmit1}
               playerStatsName={this.state.playerStatsName}
               playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
-              handleChangePitcher={this.handleChangePitcher}
-              handleSubmitPitcher={this.handleSubmitPitcher}
-              pitcherName={this.state.pitcherName}
-              pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
+              handleChange2={this.handleChange2}
+              handleSubmit2={this.handleSubmit2}
+              playerStatsName2={this.state.playerStatsName2}
+              playerStatsNameIDInfo2={this.state.playerStatsNameIDInfo2}
             />
           )}
           />
@@ -102,30 +129,18 @@ class App extends Component {
 
           <Route exact path="/pitchers" render={() => (
             <Pitchers
-            handleChange1={this.handleChange1}
-            handleSubmit1={this.handleSubmit1}
-            playerStatsName={this.state.playerStatsName}
-            playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
             handleChangePitcher={this.handleChangePitcher}
             handleSubmitPitcher={this.handleSubmitPitcher}
             pitcherName={this.state.pitcherName}
             pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
+            handleChangePitcher2={this.handleChangePitcher2}
+            handleSubmitPitcher2={this.handleSubmitPitcher2}
+            pitcherName2={this.state.pitcherName2}
+            pitcherStatsNameIDInfo2={this.state.pitcherStatsNameIDInfo2}
             />
           )}
           />
-            
-          {/* <Players 
-            handleChange1={this.handleChange1}
-            handleSubmit1={this.handleSubmit1}
-            playerStatsName={this.state.playerStatsName}
-            playerStatsNameIDInfo={this.state.playerStatsNameIDInfo}
-            handleChangePitcher={this.handleChangePitcher}
-            handleSubmitPitcher={this.handleSubmitPitcher}
-            pitcherName={this.state.pitcherName}
-            pitcherStatsNameIDInfo={this.state.pitcherStatsNameIDInfo}
-          /> */}
-          <Footer
-          />
+          <Footer/>
         </div>
       )
     
