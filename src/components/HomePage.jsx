@@ -12,11 +12,16 @@ export default function HomePage(props) {
         <h3>Runs Batted In: {props.playerByID.rbi}</h3>
       </div>
 
-      <div id="playerName">
-        <h1>Player Name</h1>
-        <h3>First Name: {props.playerByName.name_first}</h3>
-        <h3>Last Name: {props.playerByName.name_last}</h3>
-        <h3>Player ID: {props.playerByName.player_id}</h3>
+      <div className="playerName">
+        <form id="player-form" onSubmit={props.handleSubmit}>
+          <input id="input" type="text" name="ID1" onChange={props.handleChange} placeholder="Type a Player" />
+          <h1>Player Stats</h1>
+          <h3>Average: {props.playerStats.avg}</h3>
+          <h3>Home Runs: {props.playerStats.hr}</h3>
+          <h3>RBI: {props.playerStats.rbi}</h3>
+          <h3>Home Runs: {props.playerStats.player_id}</h3>
+        </form>
+        
       </div>
     </div>
   )

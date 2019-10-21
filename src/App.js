@@ -10,7 +10,12 @@ class App extends Component {
     this.state = {
       playerByID: {},
       playerByName: {},
-      ID: ""
+      ID: "",
+      formData: {
+        ID1: ""
+      },
+      judge: 493316,
+      playerStats: ""
     }
   }
   
@@ -28,6 +33,29 @@ class App extends Component {
     console.log(ID)
   }
 
+  handleChange = (e) => {
+    let name = e.target.name
+    let judge = e.target.value
+    this.setState(prevState => ({
+      formData: {
+        ...prevState.formData,
+        name: judge
+      }
+    }))
+    // console.log(myvalue)
+    console.log(this.state.judge)
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const playerStats = await playerIDVariable(this.state.judge)
+    this.setState({
+      playerStats: playerStats
+    })
+    // console.log(playerStats)
+    // console.log(this.state.judge)
+  }
+
   render() {
   
       return (
@@ -36,6 +64,9 @@ class App extends Component {
           <HomePage playerByID={this.state.playerByID}
             playerByName={this.state.playerByName}
             ID={this.state.ID}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            playerStats={this.state.playerStats}
           />
         </div>
       )
