@@ -10,53 +10,55 @@ export class Dropdown extends Component {
     activeOption: 0,
     filteredOptions: [],
     showOptions: false,
-    userInput: ''  
+    userInput: ''
   };
   onChange = (e) => {
-    console.log('onChanges');
     const { options } = this.props;
     const userInput = e.currentTarget.value;
+
     const filteredOptions = options.filter(
       (optionName) =>
         optionName.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
+
     this.setState({
       activeOption: 0,
       filteredOptions,
       showOptions: true,
-      userInput: e.currentTarget.value 
-    });  
+      userInput: e.currentTarget.value
+    });
+
   };
-  
-  onClick = (e) => { 
+
+  onClick = (e) => {
     this.setState({
       activeOption: 0,
       filteredOptions: [],
       showOptions: false,
-      userInput: e.currentTarget.innerText 
+      userInput: e.currentTarget.innerText
     });
   };
-  
+
   onKeyDown = (e) => {
     const { activeOption, filteredOptions } = this.state;
     if (e.keyCode === 13) {
       this.setState({
         activeOption: 0,
         showOptions: false,
-        userInput: filteredOptions[activeOption] 
+        userInput: filteredOptions[activeOption]
       });
     } else if (e.keyCode === 38) {
       if (activeOption === 0) {
-        return; 
+        return;
       }
       this.setState({ activeOption: activeOption - 1 });
     } else if (e.keyCode === 40) {
       if (activeOption === filteredOptions.length - 1) {
         console.log(activeOption);
-        return; 
+        return;
       }
-      this.setState({ activeOption: activeOption + 1 }); 
-    }    
+      this.setState({ activeOption: activeOption + 1 });
+    }
   };
 
   render() {
@@ -74,8 +76,8 @@ export class Dropdown extends Component {
           <ul className="options">
             {filteredOptions.map((optionName, index) => {
               let className;
-              if (index === activeOption) { 
-                className = 'option-active'; 
+              if (index === activeOption) {
+                className = 'option-active';
               }
               return (
                 <li className={className} key={optionName} onClick={onClick}>
@@ -95,7 +97,10 @@ export class Dropdown extends Component {
     }
 
     return (
-      <React.Fragment>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        this.props.handleSubmit(this.state.userInput)
+      }} id="batter-form-name">
         <div className="search">
           <input
             type="text"
@@ -108,11 +113,11 @@ export class Dropdown extends Component {
           />
         </div>
         {optionList}
-      </React.Fragment>
-    ); 
+      </form>
+    );
   }
 }
-  
+
 export default Dropdown;
 
 

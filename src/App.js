@@ -42,14 +42,14 @@ class App extends Component {
   }
 
   handleChange1 = (e) => {
+    debugger
     this.setState({
       name: e.target.value
     })
     // console.log(this.state.name)
   }
-  handleSubmit1 = async (e) => {
-    e.preventDefault();
-    const playerStatsName = await playerNameVariable(this.state.name)
+  handleSubmit1 = async (playerName) => {
+    const playerStatsName = await playerNameVariable(playerName)
     const playerStatsNameID = playerStatsName.player_id
     const playerStatsNameIDInfo = await playerIDVariable(playerStatsNameID)
     this.setState({
@@ -193,19 +193,19 @@ class App extends Component {
         <Route exact path="/dropdown" render={() => (
           <Dropdown
             options={[
-            "Papaya",
-            "Persimmon",
-            "Paw Paw",
-            "Prickly Pear",
-            "Peach",
-            "Pomegranate",
-            "Pineapple"
-          ]}
+              "Mike Trout",
+              "Aaron Judge",
+              "Aaron Hicks",
+              "Gary Sanchez",
+              "Paul Goldschmidt",
+              "Kris Bryant",
+              "Anthony Rizzo"
+            ]}
           />
         )}
         />
         <Route exact path="/hitters" render={() => (
-          <Players 
+          <Players
             handleChange1={this.handleChange1}
             handleSubmit1={this.handleSubmit1}
             playerStatsName={this.state.playerStatsName}
@@ -218,7 +218,7 @@ class App extends Component {
         )}
         />
         <Route exact path="/pitchers" render={() => (
-          <Pitchers  
+          <Pitchers
             handleChangePitcher={this.handleChangePitcher}
             handleSubmitPitcher={this.handleSubmitPitcher}
             pitcherName={this.state.pitcherName}
