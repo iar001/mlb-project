@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import Pitchers from './components/Pitchers';
 import HistoricalPlayers from './components/HistoricalPlayers';
 import HistoricalPitchers from './components/HistoricalPitchers';
+import Dropdown from './components/Dropdown';
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +47,6 @@ class App extends Component {
     })
     // console.log(this.state.name)
   }
-
   handleSubmit1 = async (e) => {
     e.preventDefault();
     const playerStatsName = await playerNameVariable(this.state.name)
@@ -65,7 +65,6 @@ class App extends Component {
     })
     // console.log(this.state.ID)
   }
-
   handleSubmit2 = async (e) => {
     e.preventDefault();
     const playerStatsName2 = await playerNameVariable(this.state.name2)
@@ -84,7 +83,6 @@ class App extends Component {
     })
     // console.log(this.state.pitcherName)
   }
-
   handleSubmitPitcher = async (e) => {
     e.preventDefault();
     const pitcherName = await pitcherNameVariable(this.state.pitcherName)
@@ -104,7 +102,6 @@ class App extends Component {
     })
     // console.log(this.state.pitcherName)
   }
-
   handleSubmitPitcher2 = async (e) => {
     e.preventDefault();
     const pitcherName2 = await pitcherNameVariable(this.state.pitcherName2)
@@ -124,7 +121,6 @@ class App extends Component {
     })
     // console.log(this.state.historicalName)
   }
-
   handleSubmitHistory = async (e) => {
     e.preventDefault();
     const historicalName = await historicalPlayerName(this.state.historicalName)
@@ -143,7 +139,6 @@ class App extends Component {
     })
     // console.log(this.state.historicalName2)
   }
-
   handleSubmitHistory2 = async (e) => {
     e.preventDefault();
     const historicalName2 = await historicalPlayerName(this.state.historicalName2)
@@ -191,8 +186,24 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header />
-        <Route exact path="/" component={HomePage} />
+        <Header
+        />
+        <Route exact path="/" component={HomePage}
+        />
+        <Route exact path="/dropdown" render={() => (
+          <Dropdown
+            options={[
+            "Papaya",
+            "Persimmon",
+            "Paw Paw",
+            "Prickly Pear",
+            "Peach",
+            "Pomegranate",
+            "Pineapple"
+          ]}
+          />
+        )}
+        />
         <Route exact path="/hitters" render={() => (
           <Players 
             handleChange1={this.handleChange1}
@@ -204,7 +215,7 @@ class App extends Component {
             playerStatsName2={this.state.playerStatsName2}
             playerStatsNameIDInfo2={this.state.playerStatsNameIDInfo2}
           />
-          )}
+        )}
         />
         <Route exact path="/pitchers" render={() => (
           <Pitchers  
@@ -245,10 +256,10 @@ class App extends Component {
           />
         )}
         />
-        
-        <Footer/>
+        <Footer
+        />
       </div>
-      )
+    )
   }
 }
 
