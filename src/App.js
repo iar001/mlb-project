@@ -15,28 +15,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ID: "",
       name: "",
       playerStatsName: "",
       playerStatsNameIDInfo: "",
       name2: "",
       playerStatsName2: "",
       playerStatsNameIDInfo2: "",
+      pName: "",
       pitcherName: "",
       pitcherStatsNameIDInfo: "",
       pitcherName2: "",
       pitcherStatsNameIDInfo2: "",
       historicalName: "",
-      historicalNamePlayerID: "",
       historicalNamePlayerIDInfo: "",
       historicalName2: "",
-      historicalNamePlayerID2: "",
       historicalNamePlayerIDInfo2: "",
       historicalPitcher: "",
-      historicalPitcherID: "",
       historicalPitcherIDInfo: "",
       historicalPitcher2: "",
-      historicalPitcherID2: "",
       historicalPitcherIDInfo2: "",
     }
   }
@@ -46,109 +42,84 @@ class App extends Component {
     this.setState({
       name: e.target.value
     })
-    // console.log(this.state.name)
   }
   handleSubmit1 = async (playerName) => {
     const playerStatsName = await playerNameVariable(playerName)
-    const playerStatsNameID = playerStatsName.player_id
-    const playerStatsNameIDInfo = await playerIDVariable(playerStatsNameID)
+    const playerStatsNameIDInfo = await playerIDVariable(playerStatsName.player_id)
     this.setState({
       playerStatsName,
       playerStatsNameIDInfo
     })
-    // console.log(this.state.playerStatsNameIDInfo)
   }
 
   handleChange2 = (e) => {
     this.setState({
       name2: e.target.value
     })
-    // console.log(this.state.ID)
   }
-  handleSubmit2 = async (e) => {
-    e.preventDefault();
-    const playerStatsName2 = await playerNameVariable(this.state.name2)
-    const playerStatsNameID2 = playerStatsName2.player_id
-    const playerStatsNameIDInfo2 = await playerIDVariable(playerStatsNameID2)
+  handleSubmit2 = async (playerName) => {
+    const playerStatsName2 = await playerNameVariable(playerName)
+    const playerStatsNameIDInfo2 = await playerIDVariable(playerStatsName2.player_id)
     this.setState({
       playerStatsName2,
       playerStatsNameIDInfo2
     })
-    // console.log(this.state.playerStatsNameIDInfo)
   }
 
   handleChangePitcher = (e) => {
     this.setState({
-      pitcherName: e.target.value
+      pName: e.target.value
     })
-    // console.log(this.state.pitcherName)
   }
-  handleSubmitPitcher = async (e) => {
-    e.preventDefault();
-    const pitcherName = await pitcherNameVariable(this.state.pitcherName)
-    const pitcherStatsNameID = pitcherName.player_id
-    const pitcherStatsNameIDInfo = await pitcherIDVariable(pitcherStatsNameID)
+  handleSubmitPitcher = async (playerName) => {
+    const pitcherName = await pitcherNameVariable(playerName)
+    const pitcherStatsNameIDInfo = await pitcherIDVariable(pitcherName.player_id)
     this.setState({
       pitcherName,
       pitcherStatsNameIDInfo
     })
-    // console.log(pitcherName)
-    // console.log(this.state.pitcherStatsNameIDInfo)
   }
 
   handleChangePitcher2 = (e) => {
     this.setState({
       pitcherName2: e.target.value
     })
-    // console.log(this.state.pitcherName)
   }
-  handleSubmitPitcher2 = async (e) => {
-    e.preventDefault();
-    const pitcherName2 = await pitcherNameVariable(this.state.pitcherName2)
-    const pitcherStatsNameID2 = pitcherName2.player_id
-    const pitcherStatsNameIDInfo2 = await pitcherIDVariable(pitcherStatsNameID2)
+  handleSubmitPitcher2 = async (playerName) => {
+    const pitcherName2 = await pitcherNameVariable(playerName)
+    const pitcherStatsNameIDInfo2 = await pitcherIDVariable(pitcherName2.player_id)
     this.setState({
       pitcherName2,
       pitcherStatsNameIDInfo2
     })
-    // console.log(pitcherName)
-    // console.log(this.state.pitcherStatsNameIDInfo)
   }
 
   handleChangeHistory = (e) => {
     this.setState({
       historicalName: e.target.value
     })
-    // console.log(this.state.historicalName)
   }
-  handleSubmitHistory = async (e) => {
-    e.preventDefault();
-    const historicalName = await historicalPlayerName(this.state.historicalName)
-    const historicalNamePlayerID = historicalName.player_id
-    const historicalNamePlayerIDInfo = await historicalPlayerID(historicalNamePlayerID)
+  handleSubmitHistory = async (playerName) => {
+    const historicalName = await historicalPlayerName(playerName)
+    const historicalNamePlayerIDInfo = await historicalPlayerID(historicalName.player_id)
     this.setState({
       historicalName,
       historicalNamePlayerIDInfo
-    })
-    // console.log(historicalNamePlayerIDInfo)    
+    })  
   }
 
   handleChangeHistory2 = (e) => {
     this.setState({
       historicalName2: e.target.value
     })
-    // console.log(this.state.historicalName2)
   }
-  handleSubmitHistory2 = async (e) => {
-    e.preventDefault();
-    const historicalName2 = await historicalPlayerName(this.state.historicalName2)
-    const historicalNamePlayerID2 = historicalName2.player_id
-    const historicalNamePlayerIDInfo2 = await historicalPlayerID(historicalNamePlayerID2)
+  handleSubmitHistory2 = async (playerName) => {
+    const historicalName2 = await historicalPlayerName(playerName)
+    const historicalNamePlayerIDInfo2 = await historicalPlayerID(historicalName2.player_id)
     this.setState({
       historicalName2,
       historicalNamePlayerIDInfo2
-    })
-    // console.log(historicalNamePlayerIDInfo2)    
+    })  
   }
 
   handleChangePitcherHistory = (e) => {
@@ -156,11 +127,9 @@ class App extends Component {
       historicalPitcher: e.target.value
     })
   }
-  handleSubmitPitcherHistory = async (e) => {
-    e.preventDefault();
-    const historicalPitcher = await historicalPitcherName(this.state.historicalPitcher)
-    const historicalPitcherID1 = historicalPitcher.player_id
-    const historicalPitcherIDInfo = await historicalPitcherID(historicalPitcherID1)
+  handleSubmitPitcherHistory = async (playerName) => {
+    const historicalPitcher = await historicalPitcherName(playerName)
+    const historicalPitcherIDInfo = await historicalPitcherID(historicalPitcher.player_id)
     this.setState({
       historicalPitcher,
       historicalPitcherIDInfo
@@ -172,11 +141,9 @@ class App extends Component {
       historicalPitcher2: e.target.value
     })
   }
-  handleSubmitPitcherHistory2 = async (e) => {
-    e.preventDefault();
-    const historicalPitcher2 = await historicalPitcherName(this.state.historicalPitcher2)
-    const historicalPitcherID2 = historicalPitcher2.player_id
-    const historicalPitcherIDInfo2 = await historicalPitcherID(historicalPitcherID2)
+  handleSubmitPitcherHistory2 = async (playerName) => {
+    const historicalPitcher2 = await historicalPitcherName(playerName)
+    const historicalPitcherIDInfo2 = await historicalPitcherID(historicalPitcher2.player_id)
     this.setState({
       historicalPitcher2,
       historicalPitcherIDInfo2

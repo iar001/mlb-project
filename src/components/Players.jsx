@@ -10,7 +10,7 @@ export default function Players(props) {
         {/* <form id="batter-form-name" onSubmit={props.handleSubmit1}> */}
         <Dropdown
           type="text"
-          handleSubmit={props.handleSubmit1}
+          handleSubmit1={props.handleSubmit1}
           options={[
             "Mike Trout",
             "Aaron Judge",
@@ -20,7 +20,7 @@ export default function Players(props) {
             "Kris Bryant",
             "Anthony Rizzo"
           ]}
-          onChange={props.handleChange1}
+          onChange1={props.handleChange1}
           placeholder="Enter a Current Batter"
         />
         <h1>Batter</h1>
@@ -35,8 +35,23 @@ export default function Players(props) {
       </div>
 
       <div className="batter-name-2">
-        <form id="batter-form-name-2" onSubmit={props.handleSubmit2}>
-          <input id="input" type="text" onChange={props.handleChange2} placeholder="Enter Another Batter" />
+        {/* <form id="batter-form-name-2" onSubmit={props.handleSubmit2}> */}
+        {/* <input id="input" type="text" onChange={props.handleChange2} placeholder="Enter Another Batter" /> */}
+        <Dropdown
+          type="text"
+          handleSubmit1={props.handleSubmit2}
+          options={[
+            "Mike Trout",
+            "Aaron Judge",
+            "Aaron Hicks",
+            "Gary Sanchez",
+            "Paul Goldschmidt",
+            "Kris Bryant",
+            "Anthony Rizzo"
+          ]}
+          onChange1={props.handleChange2}
+          placeholder="Enter a Current Batter"
+        />
           <h1>Batter</h1>
           <h3>Name: {props.playerStatsName2.name_display_first_last}</h3>
           <h3>Average: {props.playerStatsNameIDInfo2.avg}</h3>
@@ -45,7 +60,7 @@ export default function Players(props) {
           <h3>Slugging Percentage: {props.playerStatsNameIDInfo2.slg}</h3>
           <h3>On Base Percentage: {props.playerStatsNameIDInfo2.obp}</h3>
           <h3>Player ID: {props.playerStatsNameIDInfo2.player_id}</h3>
-        </form>
+        {/* </form> */}
       </div>
 
     </div>

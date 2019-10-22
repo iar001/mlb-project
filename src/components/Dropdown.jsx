@@ -99,7 +99,7 @@ export class Dropdown extends Component {
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.state.userInput)
+        this.props.handleSubmit1(this.state.userInput)
       }} id="batter-form-name">
         <div className="search">
           <input
