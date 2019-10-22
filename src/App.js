@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import { playerIDVariable, playerNameVariable, pitcherNameVariable, pitcherIDVariable, historicalPlayerID, historicalPlayerName } from './services/api-helper';
+import { playerIDVariable, playerNameVariable, pitcherNameVariable, pitcherIDVariable, historicalPlayerID, historicalPlayerName, historicalPitcherID, historicalPitcherName } from './services/api-helper';
 import Header from './components/Header';
 import Footer from './components/Footer'
 import Players from './components/Players';
 import HomePage from './components/HomePage';
 import Pitchers from './components/Pitchers';
 import HistoricalPlayers from './components/HistoricalPlayers';
+import HistoricalPitchers from './components/HistoricalPitchers';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +30,13 @@ class App extends Component {
       historicalNamePlayerIDInfo: "",
       historicalName2: "",
       historicalNamePlayerID2: "",
-      historicalNamePlayerIDInfo2: ""
+      historicalNamePlayerIDInfo2: "",
+      historicalPitcher: "",
+      historicalPitcherID: "",
+      historicalPitcherIDInfo: "",
+      historicalPitcher2: "",
+      historicalPitcherID2: "",
+      historicalPitcherIDInfo2: "",
     }
   }
 
@@ -149,6 +156,38 @@ class App extends Component {
     // console.log(historicalNamePlayerIDInfo2)    
   }
 
+  handleChangePitcherHistory = (e) => {
+    this.setState({
+      historicalPitcher: e.target.value
+    })
+  }
+  handleSubmitPitcherHistory = async (e) => {
+    e.preventDefault();
+    const historicalPitcher = await historicalPitcherName(this.state.historicalPitcher)
+    const historicalPitcherID1 = historicalPitcher.player_id
+    const historicalPitcherIDInfo = await historicalPitcherID(historicalPitcherID1)
+    this.setState({
+      historicalPitcher,
+      historicalPitcherIDInfo
+    })
+  }
+
+  handleChangePitcherHistory2 = (e) => {
+    this.setState({
+      historicalPitcher2: e.target.value
+    })
+  }
+  handleSubmitPitcherHistory2 = async (e) => {
+    e.preventDefault();
+    const historicalPitcher2 = await historicalPitcherName(this.state.historicalPitcher2)
+    const historicalPitcherID2 = historicalPitcher2.player_id
+    const historicalPitcherIDInfo2 = await historicalPitcherID(historicalPitcherID2)
+    this.setState({
+      historicalPitcher2,
+      historicalPitcherIDInfo2
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -193,6 +232,20 @@ class App extends Component {
           />
         )}
         />
+        <Route exact path="/historicalpitchers" render={() => (
+          <HistoricalPitchers
+            handleChangePitcherHistory={this.handleChangePitcherHistory}
+            handleSubmitPitcherHistory={this.handleSubmitPitcherHistory}
+            historicalPitcher={this.state.historicalPitcher}
+            historicalPitcherIDInfo={this.state.historicalPitcherIDInfo}
+            handleChangePitcherHistory2={this.handleChangePitcherHistory2}
+            handleSubmitPitcherHistory2={this.handleSubmitPitcherHistory2}
+            historicalPitcher2={this.state.historicalPitcher2}
+            historicalPitcherIDInfo2={this.state.historicalPitcherIDInfo2}
+          />
+        )}
+        />
+        
         <Footer/>
       </div>
       )

@@ -9,6 +9,42 @@
   justify-content: space-around;
 }
 
+button {
+  background: greenyellow;
+  color: black;
+  font-family: Sans-serif;
+  font-size: 25px;
+  height: 150px;
+  width: 150px;
+  line-height: 60px;
+  /* line-height changes where text is in buttom */
+  margin: 20px 20px;
+  /* margin moves where the button is on screen */
+  text-align: center;
+  /* border: 3px solid black; */
+  border-radius: 50%;
+  transition: all 0.5s ease 0s;
+  border: 0;
+  }
+  
+  button:hover{
+    color: greenyellow;
+    background-color: black;
+    transition-timing-function: ease-in-out;
+    transition: .5s;
+    border: 3px solid greenyellow;
+  }
+
+ #test {
+   border: none;
+}  
+
+.HomePage {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+  
 .players {
   display: flex;
   justify-content: space-around;
@@ -20,6 +56,11 @@
 }
 
 .historical-batters {
+  display: flex;
+  justify-content: space-around;
+}
+
+.historical-pitchers {
   display: flex;
   justify-content: space-around;
 }

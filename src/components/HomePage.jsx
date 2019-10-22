@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import baseballPic from '../baseball-pic.png'
 
 export default function HomePage(props) {
   return (
@@ -13,9 +14,11 @@ export default function HomePage(props) {
       </Link>
 
       <Link to="/historicalhitters" key="historical-hitters">
-        <button>Historical HItter Page</button>
+        <button>Historical Hitter Page</button>
       </Link>
-      
+      <Link to='historicalpitchers' key="historical-pitchers">
+      <button><img src={baseballPic} width="150px" height= "150px"/></button>
+      </Link>
     </div>
   )
 }
