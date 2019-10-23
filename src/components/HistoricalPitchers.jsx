@@ -17,7 +17,8 @@ export default function HistoricalPitchers(props) {
             "Roger Clemens",
             "Mariano Rivera",
             "Trevor Hoffman",
-            "Ron Guidry"
+            "Ron Guidry",
+            "Andy Pettite"
           ]}
           onChange1={props.handleChangePitcherHistory}
           placeholder="Enter a Historical Batter"
