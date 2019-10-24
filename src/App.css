@@ -53,7 +53,8 @@ text-align: center;
   display: flex;
   justify-content: space-around;
   background-image: url("http://cdn.wallpapername.com/1920x1200/20121102/buildings%20new%20york%20yankees%20playground%20baseball%20field%201920x1200%20wallpaper_www.wallpapername.com_97.jpg");
-  background-size: cover;                      /* <------ */
+  background-size: cover; 
+  height: 550px;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
@@ -63,7 +64,8 @@ text-align: center;
   display: flex;
   justify-content: space-around;
   background-image: url("https://cdn.pixabay.com/photo/2014/06/20/10/44/softball-372979_1280.jpg");
-  background-size: cover;                      /* <------ */
+  background-size: cover;
+  height: 550px;                       /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
@@ -73,7 +75,8 @@ text-align: center;
   display: flex;
   justify-content: space-around;
   background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/babe-ruth-lou-gehrig-and-joe-dimaggio-marvin-blaine.jpg");
-  background-size: cover;                      /* <------ */
+  background-size: cover; 
+  height: 550px;                     /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
@@ -83,7 +86,8 @@ text-align: center;
   display: flex;
   justify-content: space-around;
   background-image: url("https://cdn-s3.si.com/s3fs-public/johnny-lindell-getty2.jpg");
-  background-size: cover;                      /* <------ */
+  background-size: cover;  
+  height: 550px;                     /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
