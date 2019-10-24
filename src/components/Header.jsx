@@ -8,10 +8,10 @@ export default function Header(props) {
         <h3>Home</h3>
       </Link>
       <Link to="/hitters">
-        <h3>Modern Hitters</h3>
+        <h3>Active Hitters</h3>
       </Link>
       <Link to="/pitchers">
-        <h3>Modern Pitchers</h3>
+        <h3>Active Pitchers</h3>
       </Link>
       <Link to="/historicalhitters">
         <h3>Legendary Hitters</h3>

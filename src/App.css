@@ -59,6 +59,7 @@ text-align: center;
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .pitchers {
@@ -70,28 +71,31 @@ text-align: center;
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .historical-batters {
   display: flex;
   justify-content: space-around;
-  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/babe-ruth-lou-gehrig-and-joe-dimaggio-marvin-blaine.jpg");
+  background-image: url("https://90feetofperfection.files.wordpress.com/2010/10/1937-july-7-all-star-game-left-to-right-lou-gehrig-joe-cronin-bill-dickey-joe-dimaggio-charlie-gehringer-jimmie-foxx-and-hank-greenberg.jpg");
   background-size: cover; 
   height: 80vh;                     /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .historical-pitchers {
   display: flex;
   justify-content: space-around;
-  background-image: url("https://cdn-s3.si.com/s3fs-public/johnny-lindell-getty2.jpg");
+  background-image: url("https://pbs.twimg.com/media/C9JdWMkXsAAKLg_.jpg");
   background-size: cover;  
   height: 80vh;                     /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .footer {
@@ -163,7 +167,7 @@ ul.options {
 
 ul.options li {
   display: block;
-  background: white;
+  /* background: white; */
   margin: 10px auto;
   padding: 10px;
   font-size: 1.2rem;

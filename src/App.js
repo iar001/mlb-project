@@ -9,7 +9,6 @@ import HomePage from './components/HomePage';
 import Pitchers from './components/Pitchers';
 import HistoricalPlayers from './components/HistoricalPlayers';
 import HistoricalPitchers from './components/HistoricalPitchers';
-import Dropdown from './components/Dropdown';
 
 class App extends Component {
   constructor(props) {
@@ -105,7 +104,7 @@ class App extends Component {
     this.setState({
       historicalName,
       historicalNamePlayerIDInfo
-    })  
+    })
   }
 
   handleChangeHistory2 = (e) => {
@@ -119,7 +118,7 @@ class App extends Component {
     this.setState({
       historicalName2,
       historicalNamePlayerIDInfo2
-    })  
+    })
   }
 
   handleChangePitcherHistory = (e) => {
@@ -156,20 +155,6 @@ class App extends Component {
         <Header
         />
         <Route exact path="/" component={HomePage}
-        />
-        <Route exact path="/dropdown" render={() => (
-          <Dropdown
-            options={[
-              "Mike Trout",
-              "Aaron Judge",
-              "Aaron Hicks",
-              "Gary Sanchez",
-              "Paul Goldschmidt",
-              "Kris Bryant",
-              "Anthony Rizzo"
-            ]}
-          />
-        )}
         />
         <Route exact path="/hitters" render={() => (
           <Players

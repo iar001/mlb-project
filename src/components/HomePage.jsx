@@ -6,7 +6,7 @@ export default function HomePage(props) {
   return (
     <div className="HomePage">
       <div>
-        <h3>Current Hitters</h3>
+        <h3>Active Hitters</h3>
         <Link to="/hitters" key="hitters">
           <button>
             <img src={baseballPic} width="150px" height="150px" />
@@ -15,7 +15,7 @@ export default function HomePage(props) {
       </div>
 
       <div>
-        <h3>Current Pitchers</h3>
+        <h3>Active Pitchers</h3>
         <Link to="/pitchers" key="pitchers">
           <button>
             <img src={baseballPic} width="150px" height="150px" />
