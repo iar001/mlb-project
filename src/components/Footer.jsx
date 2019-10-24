@@ -7,7 +7,13 @@ import React from 'react';
 export default function Footer(props) {
   return (
     <div className="footer">
-      <h1>This is my footer</h1>
+      <div>
+        <h3>Ian Rappaport</h3>
+      </div>
+      <div>
+        <h3>For More Info: Contact ian.a.rappaport@gmail.com</h3>
+      </div>
+
     </div>
   )
 }
