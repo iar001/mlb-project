@@ -52,7 +52,7 @@ text-align: center;
 .players {
   display: flex;
   justify-content: space-around;
-  background-image: url("https://cdn.pixabay.com/photo/2016/01/19/15/05/baseball-field-1149153_1280.jpg");
+  background-image: url("http://cdn.wallpapername.com/1920x1200/20121102/buildings%20new%20york%20yankees%20playground%20baseball%20field%201920x1200%20wallpaper_www.wallpapername.com_97.jpg");
   background-size: cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;

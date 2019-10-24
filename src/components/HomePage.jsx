@@ -13,27 +13,27 @@ export default function HomePage(props) {
           </button>
         </Link>
       </div>
-      
+
       <div>
         <h3>Current Pitchers</h3>
-        <Link to="/pitchers" key="pitchers">  
+        <Link to="/pitchers" key="pitchers">
           <button>
             <img src={baseballPic} width="150px" height="150px" />
           </button>
         </Link>
       </div>
-      
+
       <div>
-        <h3>Historical Hitters</h3>
+        <h3>Legendary Hitters</h3>
         <Link to="/historicalhitters" key="historical-hitters">
           <button>
             <img src={baseballPic} width="150px" height="150px" />
           </button>
         </Link>
       </div>
-      
+
       <div>
-        <h3>Historical Pitchers</h3>
+        <h3>Legendary Pitchers</h3>
         <Link to='historicalpitchers' key="historical-pitchers">
           <button>
             <img src={baseballPic} width="150px" height="150px" />
