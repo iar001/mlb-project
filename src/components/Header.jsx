@@ -5,7 +5,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <Link to="/">
-        <h2>Home</h2>
+        <h3>Home</h3>
       </Link>
       <Link to="/hitters">
         <h3>Modern Hitters</h3>

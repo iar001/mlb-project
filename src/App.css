@@ -1,10 +1,11 @@
 
 
 .header {
-  background-color: blue;
+  background: linear-gradient(to right, lightgrey, lightblue);
+  color: red;
   text-align: center;
   margin: 0 auto;
-  border: 3px solid green;
+  border: 3px solid black;
   display: flex;
   justify-content: space-around;
 }
@@ -51,12 +52,17 @@ text-align: center;
 .players {
   display: flex;
   justify-content: space-around;
+  background-image: url("https://cdn.pixabay.com/photo/2016/01/19/15/05/baseball-field-1149153_1280.jpg");
+  background-size: cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
 }
 
 .pitchers {
   display: flex;
   justify-content: space-around;
-  background-image: url("https://wallpaperplay.com/walls/full/9/7/0/293011.jpg");
+  background-image: url("https://cdn.pixabay.com/photo/2014/06/20/10/44/softball-372979_1280.jpg");
   background-size: cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
@@ -66,20 +72,30 @@ text-align: center;
 .historical-batters {
   display: flex;
   justify-content: space-around;
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/babe-ruth-lou-gehrig-and-joe-dimaggio-marvin-blaine.jpg");
+  background-size: cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
 }
 
 .historical-pitchers {
   display: flex;
   justify-content: space-around;
+  background-image: url("https://cdn-s3.si.com/s3fs-public/johnny-lindell-getty2.jpg");
+  background-size: cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
 }
 
 .footer {
   text-align: center;
-  background-color: green;
+  background: linear-gradient(to right, lightblue, lightgrey);
   bottom: 0;
   position: fixed;
   width: 100%;
-  border: 3px solid blue;
+  border: 3px solid red;
   display: flex;
   justify-content: space-around;
 }
